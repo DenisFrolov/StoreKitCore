@@ -55,7 +55,8 @@ extension Product {
     }
 
     public var promoPeriod: String? {
-        guard let intro =  subscription?.introductoryOffer else { return nil }
-        return intro.period.formatted(subscriptionPeriodFormatStyle, referenceDate: .now)
+        guard let intro = subscription?.introductoryOffer else { return nil }
+        let style = Date.ComponentsFormatStyle(style: .wide, locale: Locale(identifier: "en_US"))
+        return intro.period.formatted(style, referenceDate: .now)
     }
 }
