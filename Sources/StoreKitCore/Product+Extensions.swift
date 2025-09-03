@@ -34,7 +34,7 @@ extension Product {
         if #available(iOS 16.4, *) {
             switch subscription?.subscriptionPeriod {
             case .everyThreeDays:   return nil
-            case .weekly:           return nil
+            case .weekly:           return price
             case .everyTwoWeeks:    return price / 2
             case .monthly:          return price / 4
             case .everyTwoMonths:   return price / 8
