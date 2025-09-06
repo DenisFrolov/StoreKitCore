@@ -32,6 +32,11 @@ extension Product {
 
     public var weekPrice: Decimal? {
         if #available(iOS 16.4, *) {
+            if subscription?.subscriptionPeriod.unit == .day,
+               subscription?.subscriptionPeriod.value == 7 {
+                return price
+            }
+
             switch subscription?.subscriptionPeriod {
             case .everyThreeDays:   return nil
             case .weekly:           return price
